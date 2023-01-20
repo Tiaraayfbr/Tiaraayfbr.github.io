@@ -1,0 +1,131 @@
+---
+title: "Analisis Impor Buah-Buahan Negara Tiongkok Terhadap GDP Indonesia"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Tiara Yoda Febriani"
+date: 2023-01-20
+number-sections: true
+format: 
+  html: default
+  docx: default
+editor: visual
+---
+
+![](poltekapp.jpg)\
+
+## Pendahuluan
+
+### **Latar belakang**
+
+Indonesia masih tergantung terhadap barang-barang impor salah satunya buah-buahan yang sebenarnya bisa diproduksi di dalam negeri, tapi masih diimpor. Indonesia adalah salah satu negara yang kaya akan sumber daya alam. Ini terbukti dengan keadaan tanah Indonesia yang sangat subur hingga mendapatkan perumpamaan biji yang tidak sengaja jatuh pun akan segera tumbuh dengan alaminya. Sebagai negara agraris yang kaya, Indonesia belum mampu menghasilkan buah-buahan yang memadai bagi kebutuhan masyarakatnya. Indonesia merupakan negara agraris yang kaya akan sumber daya alam yang melimpah, terutama hasil pertanian. Buah-buahan adalah salah satu potensi terbesar yang ada di Indonesia.Peningkatan buah impor salah satunya dipengaruhi oleh selera konsumen terhadap rasa, aroma, warna dan penampilan buah impor. Konsumen adalah pribadi seseorang yang mendorong keinginan untuk melakukan kegiatan guna mencapai suatu tujuan (Setiadi, 2003). Pertumbuhan ekonomi dapat diartikan sebagai kenaikan nilai GDP (Groos Domestic Product).Jadi pertumbuhan ekonomi mengukur prestasi dari perkembangan suatu perekonomian dari suatu periode ke periode lainnya. Kemampuan suatu negara untuk menghasilkan barang dan jasa akan meningkat. Kemampuan yang meningkat ini disebabkan oleh pertambahan faktor-faktor produksi baik dalam jumlah dan kualitasnya.
+
+### Ruang lingkup
+
+Ruang lingkup materi pada penelitian ini dibatasi pada pembahasan mengenai hubungan antara impor buah-buahan negara Tiongkok terhadap GDP Indonesia.
+
+### Rumusan masalah
+
+Berdasarkan latar belakang masalah yang telah diuraikan sebelumnya, maka rumusan masalah dari penelitian ini yaitu:
+
+1.  Bagaimana pengaruh impor buah-buahan negara Tiongkok terhadap GDP Indonesia pada tahun 2017-2021?
+2.  Apakah Jumlah impor buah-buahan negara Tiongkok berpengaruh besar terhadap GDP Indonesia pada tahun 2017-2021?
+3.  Bagimana pertumbuhan GDP Indonesia tahun 2017-2021?
+
+### Tujuan dan manfaat penelitian
+
+Berdasarkan latar belakang serta rumusan masalah diatas maka tujuan dan manfaat dari penelitian ini yaitu, untuk menganalisis pengaruh impor buah-buahan negara Tiongkok terhadap GDP Indonesia pada tahun 2017-2021, untuk menganalisis jumlah impor buah-buahan negara Tiongkok berpengaruh besar terhadap GDP Indonesia pada tahun 2017-2021, untuk menganalisis pertumbuhan GDP Indonesia tahun 2017-2021. Penelitian ini diharapkan agar pembaca dapat mengetahui hubungan antara impor buah-buahan negara Tiongkok terhadap GDP Indonesia dan untuk menambah pengetahuan para pembaca tentang impor buah-buahan negara Tiongkok terhadap GDP Indonesia.
+
+**Package**
+
+Packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+library ('tidyverse')
+library('readxl')
+library('writexl')
+```
+
+## Studi pustaka
+
+**Teori**
+
+Marolop Tandjung (2011:379), pengertian impor adalah kegiatan perdagangan dengan cara memasukkan barang dari luar negeri ke dalam daerah pabean Indonesia sesuai dengan ketentuan peraturan dan perundang-undangan yang berlaku.
+
+Menurut Sediaoetomo, 2004 (dalam Farida, 2010), buah adalah bagian dari tanaman yang strukturnya mengelilingi biji dimana struktur tersebur berasal dari indung telur atau menjadi bagian dari bunga.
+
+Menurut Prasetyo (2011:28), pengertian PDB adalah seluruh barang dan jasa yang dihasilkan/diproduksi oleh seluruh warga masyarakat pada suatu wilayah negara yang bersangkutan (termasuk produksi warga negara asing di negara tersebut) dalam periode tertentu biasanya dalam satu tahun.
+
+### **Metode penelitian**
+
+### Data GDP Indonesia
+
+Data jumlah impor buah-buahan negara Tiongkok terhadap GDP Indonesia tahun 2017-2021
+
+| Tahun | Impor Buah-Buahan (Ton) | GDP Indonesia |
+|-------|-------------------------|---------------|
+| 2017  | 339 657,5               | 1015620000000 |
+| 2018  | 397 717,3               | 1042300000000 |
+| 2019  | 435 918,6               | 1119100000000 |
+| 2020  | 441 922,6               | 1058690000000 |
+| 2021  | 514 902,7               | 1186090000000 |
+
+penelitian ini menggunakan data BPS
+
+```{r}
+#| label: fig-mpg
+#| fig-cap: "City and highway mileage for 38 popular models of cars.Color by number of cylinders"
+
+
+dat<-read_excel('datatiara.xlsx')
+ggplot(data=dat,aes(x=gdp,y=imporbuah)) +
+  geom_point(color="red",size=2) + # setiap nambah command, selalu kasih tanda +
+  labs(title="tabel 1. hubungan antara impor buah dan PDB",
+       x="GDP INDONESIA",
+       y="IMPOR BUAH DARI TIONGKOK",
+       caption = "sumber: Badan Pusat Statistik, World Bank") +
+  theme_classic()
+```
+
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 2 variabel independen. Penelitian ini mermaksud mencari hubungan antara impor buah-buahan negara Tiongkok dan GDP. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah impor buah dan $x_t$ adalah GDP.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Catatan impor buah-buahan dari Tiongkok ke Indonesia terus berlangsung setiap bulan. Hal ini tercermin dari laporan data Badan Pusat Statistik (BPS) yang menunjukan Negeri Tirai Bambu itu menjadi pemasok terbesar buah-buahan ke Indonesia. Dari data BPS yang diterima, nilai impor buah-buahan terbesar berasal dari Tiongkok dengan nilai impor US\$ 81,97 juta. Pemerintah Indonesia berdalih bahwa impor tersebut digunakan untuk mengisi kekosongan produksi pertanian dan peternakan domestik. Maka demikian, luas lahan pertanian dan peternakan tentu menjadi indikator seberapa besar kemampuan sebuah negara bisa memenuhi kebutuhan pangan dalam negeri.
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+reg1<-lm(gdp~imporbuah,data=dat)
+ summary(reg1)
+```
+
+```{r}
+library(tidyverse)
+library(readxl)
+dat<-read_excel("datatiara.xlsx")
+reg1<-lm(gdp~imporbuah,data=dat)
+summary(reg1)
+```
+
+## Kesimpulan
+
+Berdasarkan hasil regresi diatas dapat dilihat bahwa setiap nilai impor buah-buahan yang dilakukan akan meningkatkan GDP Indonesia sebesar 9.574E+05 yang artinya setiap meningkatnya 1 ton impor buah akan menambah atau meningkatkan nilai GDP Indonesia sebesar 9.574E+05. Dari hasil regresi tersebut dapat disimpulkan bahwa jumlah impor buah-buahan selama tahun 2017-2021 cukup berpengaruh terhadap nilai GDP Indonesia. Karena hasil regresinya memiliki bintang sebanyak \\\* yang dimana dapat diartikan bahwa data diatas merupakan data yang cukup signifikan.
+
+## Referensi
+
+*Badan Pusat Statistik*. (t.t.). Diambil 20 Januari 2023, dari <https://www.bps.go.id/subject/8/ekspor-impor.html#subjekViewTab3>
+
+*Buah---Pengertian, Jenis Buah, Bagian, Fungsi & Buah Unik di Dunia*. (2022, Agustus 16). RimbaKita.com. <https://rimbakita.com/buah/>
+
+*Pengertian Ekspor dan Impor Menurut Para Ahli, Ketahui Manfaatnya untuk Negara*. (t.t.). Diambil 20 Januari 2023, dari <https://id.berita.yahoo.com/pengertian-ekspor-dan-impor-menurut-104523014.html>
+
+Prawiro, M. (2018, Agustus 29). Pengertian PDB Adalah: Fungsi, Jenis, dan Cara Menghitung PDB. *Pengertian Dan Definisi Istilah*. <https://www.maxmanroe.com/vid/bisnis/pengertian-pdb.html>
